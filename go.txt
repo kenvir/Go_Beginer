@@ -1,0 +1,1335 @@
+package main
+
+import (
+	"fmt"
+)
+
+func add(x int, y int ) int{
+	return x + y
+}
+
+// func add(x, y int) int {
+// 	return x +y
+// }
+
+// func main() {
+// 	fmt.Println(add(02, 18))
+// }
+
+func swap(x, y string) (string, string) {
+	return x, y
+}
+
+func main() {
+	a, b := swap("hello", "world")
+	fmt.Println(a, b)
+}
+
+// ben ngoai ham se khong the khai bao kieu := ( k := 3 ) de thay cho var ( var k = 3)
+
+
+// VARIABLE
+// Cac bien khong duoc ro rang se co gia tri mac dinh la zero values
+// The zero value is:
+	// 0 for numeric types,
+	// false for the boolean type, and
+	// "" (the empty string) for strings.
+
+// Viec chuyen kieu du lieu can duoc chuyen doi ro rang
+
+	// var i int = 42
+	// var f float64 = float64(i)
+	// var u uint = uint(f)
+		//  or
+	// i := 42
+	// f := float64(i)
+	// u := uint(f)
+
+// Khi bien chua duoc khai bao kieu du lieu thi se lay kieu cua bien ben phai
+
+	// var i int
+	// j := i
+
+// Neu bien ben phai chua duoc khai bao no se lay mot trong cac kieu int, float64, complex128 
+// tuy thuoc vao do chinh xac cua hang so
+
+	// i := 42             int
+	// f := 3.142          float64
+	// g := 0.867 + 0.5i   complex128
+
+// CONSTANTS
+// Cac hang so(Const) duoc khai bao giong nhu cac bien, nhung khong duoc su dung := de khai bao
+// Bao gom : character, string, boolean or numeric values
+// const Truth = true
+
+// NUMERIC CONSTANTS
+// Hang so co do chinh xac cao
+// Mot so hang so chua duoc khai bao se nhan loai no can
+
+// LOOPING
+// Go chi co mot loai vong lap la for
+// for i := 0; i < 10; i++ {}
+// init thong la cau lenh khai bao bien ngan, chi su dung trong vao for
+// vomg lap se ngung khi dieu kien la false
+// init va post la tuy chon
+
+	// func main() {
+	     // Example 1: Basic for loop with iteration over a collection
+	//     fruits := []string{"apple", "banana", "cherry"}
+	//     for i := 0; i < len(fruits); i++ {
+	//         fmt.Println(fruits[i])
+	//     }
+
+	     // Example 2: For loop as a while loop equivalent
+	//     x := 1
+	//     for x < 5 {
+	//         fmt.Println(x)
+	//         x++
+	//     }
+
+	     // Example 3: Infinite loop with break statement
+	//     y := 0
+	//     for {
+	//         fmt.Println(y)
+	//         y++
+	//         if y == 3 {
+	//             break
+	//         }
+	//     }
+
+	     // Example 4: Looping over key-value pairs in a map
+	//     colors := map[string]string{"red": "#ff0000", "green": "#00ff00", "blue": "#0000ff"}
+	//     for key, value := range colors {
+	//         fmt.Printf("Key: %s, Value: %s\n", key, value)
+	//     }
+	// }
+
+
+// SWITCH
+// Giong nhu switch trong C++, Java. Tuy nhien, trong Go chi chay truong hop da chon chu khong chay tat ca truong hop tiep theo
+// Khong can Break sau moi dieu kien do Go da duoc them tu dong
+// Cac truong hop chuyen doi cua Go khong can phai la hang so va cac gia tri lien quan khong can la so nguyen
+// Chuyen doi khong dieu kien cung giong chuyen doi co dieu kien o switch
+	
+	// import (
+	// 	"fmt"
+	// 	"runtime"
+	// )
+	// func main() {
+	// 	fmt.Print("Go runs on ")
+	// 	switch os := runtime.GOOS; os {
+	// 	case "darwin":
+	// 		fmt.Println("OS X.")
+	// 	case "linux":
+	// 		fmt.Println("Linux.")
+	// 	default:
+	// 		// freebsd, openbsd,
+	// 		// plan9, windows...
+	// 		fmt.Printf("%s.\n", os)
+	// 	}
+	// }
+
+// DEFER
+// Cau lenh tri hoan se hoan viec thuc thi ham cho den khi cac ham xung quanh tra ve
+// Cac doi so cua lenh goi bi tri hoan duoc danh gia ngay lap tuc nhung lenh goi ham khong duoc thuc thi cho den khi cac ham xung quanh tra ve
+
+	// import "fmt"
+
+	// func main() {
+	// 	defer fmt.Println("world")
+
+	// 	fmt.Println("hello")
+	// }
+
+// Cac lenh goi ham bi tri hoan duoc day len mot ngan xep
+// Khi mot ham tra ve, no se duoc thuc hien theo thư tu vao sau ra truoc
+
+// POINTERS
+// Mot con tro giu dia chi bo nho cua mot gia tri
+// Kieu *T la mot con tro toi gia tri cua T
+// Toan tu * bieu thi gia tri cua con tro (*p = 21)
+// Toan tu & tao mot con tro toi toan hang cua no (p &= i)
+
+	// import "fmt"
+
+	// func main() {
+	// 	i, j := 42, 2701
+
+	// 	p := &i         // point to i
+	// 	fmt.Println(*p) // read i through the pointer
+	// 	*p = 21         // set i through the pointer
+	// 	fmt.Println(i)  // see the new value of i
+
+	// 	p = &j         // point to j
+	// 	*p = *p / 37   // divide j through the pointer
+	// 	fmt.Println(j) // see the new value of j
+	// }
+
+// STRUCTS
+// Cau truc la mot tap hop cac truong
+
+	// import "fmt"
+
+	// type Vertex struct {
+	// 	X int
+	// 	Y int
+	// }
+
+	// func main() {
+	// 	fmt.Println(Vertex{1, 2})
+	// }
+
+// Cac truong cau truc duoc truy cap bang dau cham
+
+	// func main() {
+	// 	v := Vertex{1, 2}
+	// 	v.X = 4
+	// 	fmt.Println(v.X)
+	// }
+
+// Cac truong cau truc co the truy cap thong qua mot con tro cau truc ((*p).X co the rut gon thanh p.X )
+	// func main() {
+	// 	v := Vertex{1, 2}
+	// 	p := &v
+	// 	p.X = 1e9
+	// 	fmt.Println(v)
+	// }
+
+// Cac kieu khai bao gia tri cua cau truc
+	// var (
+	// 	v1 = Vertex{1, 2}  // has type Vertex
+	// 	v2 = Vertex{X: 1}  // Y:0 is implicit
+	// 	v3 = Vertex{}      // X:0 and Y:0
+	// 	p  = &Vertex{1, 2} // has type *Vertex
+	// )
+
+	// func main() {
+	// 	fmt.Println(v1, p, v2, v3)
+	// }
+
+// ARRAYS
+// [n]T la mot mang T chua n gia tri (var a [10]int)
+// Do dai cua mang khong thay doi 
+	// Slices
+	//[]T la mot slide co chua ca phan tu thuoc T
+	// Mot slide duoc hinh thanh bang cach chi dinh 2 chi so la: gioi han thap va gioi han cao, duoc phan tach bang 2 dau cham
+		// func main() {
+		// 	primes := [6]int{2, 3, 5, 7, 11, 13}
+
+		// 	var s []int = primes[1:4]
+		// 	fmt.Println(s)
+		// }
+
+	// Mot slide khong luu tru bat cu du lieu nao, no chi mo ta mot phan cua mang
+	// Viec thay doi ca phan tu trong slide se lam anh huong den cac phan tu tuong tu trong mang
+	// Cac slide khac cua mang se co chung cac thay doi do
+		// func main() {
+		// 	names := [4]string{
+		// 		"John",
+		// 		"Paul",
+		// 		"George",
+		// 		"Ringo",
+		// 	}
+		// 	fmt.Println(names)
+		
+		// 	a := names[0:2]
+		// 	b := names[1:3]
+		// 	fmt.Println(a, b)
+		
+		// 	a[0] = "YYY"
+		// 	b[0] = "XXX"
+		// 	fmt.Println(a, b)
+		// 	fmt.Println(names)
+		// }
+
+	// Mot slice literal giong nhu mot mang literal khong co do dai
+	// Array literal ( [3]bool{true, true, false} )
+	// Xay dung mot mang giong mang tren va tao ra mot slice tham chieu den no ( []bool{true, true, false} )
+
+	// Khi cat co the bo qua gioi han cao va thap de su dung gia tri mac dinh cua no
+	// Gia tri mac dinh: 0 cho min va do dai mang cho max
+
+	// Mot slice co ca do dai va suc chua
+		// Do dai mot slice la so phan tu ma no chua
+		// Suc chua cua mot slice la so phan tu trong mang, tinh tu phan tu dau tien  
+		// Co the tinh do dai va suc chua cua slice bang cong thuc: len(slice) va cap(slice)
+		// Co the thay doi do dai slice bang cach cat lai no, mien la du suc chua
+
+			// func main() {
+			// 	s := []int{2, 3, 5, 7, 11, 13}
+			// 	printSlice(s)
+			
+			// 	// Slice the slice to give it zero length.
+			// 	s = s[:0]
+			// 	printSlice(s)
+			
+			// 	// Extend its length.
+			// 	s = s[:4]
+			// 	printSlice(s)
+			
+			// 	// Drop its first two values.
+			// 	s = s[2:]
+			// 	printSlice(s)
+			// }
+			
+			// func printSlice(s []int) {
+			// 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+			// }
+		
+		// Gia tri 0 cua mot slice la nil
+		// Nil slice co do dai va suc chua bang 0 va khong co mang co ban
+
+		// Cac slice co the duoc tao bang ham make, day la cach tao mang co kich thuoc dong
+		// Ham make phan bo mot zero mang va tra ve mot tham chieu den mang do
+			// a := make([]int, 5)  len(a)=5	
+		// De chi dinh suc chua, chuyen doi so thu 3 cho ham make
+			// b := make([]int, 0, 5) // len(b)=0, cap(b)=5
+			// b = b[:cap(b)] // len(b)=5, cap(b)=5
+			// b = b[1:]      // len(b)=4, cap(b)=4
+
+			// func main() {
+			// 	a := make([]int, 4)
+			// 	printSlice("a", a)
+			
+			// 	b := make([]int, 0, 5)
+			// 	printSlice("b", b)
+			
+			// 	c := b[:3]
+			// 	printSlice("c", c)
+			
+			// 	d := c[1:]
+			// 	printSlice("d", d)
+			// }
+			
+			// func printSlice(s string, x []int) {
+			// 	fmt.Printf("%s len=%d cap=%d %v\n",
+			// 		s, len(x), cap(x), x)
+			// }
+
+		// Cac slice co the chua ca cac slice
+
+			// func main() {
+			// 	// Create a tic-tac-toe board.
+			// 	board := [][]string{
+			// 		[]string{"_", "_", "_"},
+			// 		[]string{"_", "_", "_"},
+			// 		[]string{"_", "_", "_"},
+			// 	}
+			
+			// 	// The players take turns.
+			// 	board[0][0] = "X" (Dong 0, vi tri 0)
+			// 	board[2][2] = "O"
+			// 	board[1][2] = "X"
+			// 	board[1][0] = "O"
+			// 	board[0][2] = "X"
+			
+			// 	for i := 0; i < len(board); i++ {
+			// 		fmt.Printf("%s\n", strings.Join(board[i], " "))
+			// 	}
+			// }
+
+		// Co the dung ham append de them phan tu vao slice
+			// func append(s []T, vs ...T) []T
+				// Tham so dau tien s cua append la mot slice cua kieu T, phan con lai la gia tri T de them vao slice
+				// Gia tri ket qua la slice chua tat ca cac phan tu ban dau va cac phan tu dươc them vao
+				// Neu mang ho tro s qua nho de phu hop voi tat ca cac gia tri thi mang lon hon se duoc phan bo
+				//  Slice duoc tra ve se tro den mang moi duoc phan bo
+					// func main() {
+					// 	var s []int
+					// 	printSlice(s)
+					
+					// 	// append works on nil slices.
+					// 	s = append(s, 0)
+					// 	printSlice(s)
+					
+					// 	// The slice grows as needed.
+					// 	s = append(s, 1)
+					// 	printSlice(s)
+					
+					// 	// We can add more than one element at a time.
+					// 	s = append(s, 2, 3, 4)
+					// 	printSlice(s)
+					// }
+					
+					// func printSlice(s []int) {
+					// 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+					// }
+		
+// RANGE
+	// Pham vi cua vong lap for khi lap qua mot slice hoac map
+	// Khi thay doi pham vi mot slice, 2 gia tri se duoc tra ve cho moi lan lap (Dau tien la chi muc va thu 2 la ban sao cua phan tu do tai chi muc)
+		// var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+		// func main() {
+			// for i, v := range pow {					// i la chi muc va v la gia tri cua phan tu
+		// 		fmt.Printf("2**%d = %d\n", i, v)
+		// 	}
+		// }
+
+	// Ban co the bo qua chi muc hoac gia tri cua phan tu bang cach su dung _
+		// for i, _ := range pow
+		// for _, value := range pow
+	// Neu ban chi muon chi muc, co the bo bo bien thu 2
+		// func main() {
+		// 	pow := make([]int, 10)
+		// 	for i := range pow {
+		// 		pow[i] = 1 << uint(i) // == 2**i
+		// 		fmt.Printf ("Index: %d\n", i)
+		// 	}
+		// 	for _, value := range pow {
+		// 		fmt.Printf("Value: %d\n", value)
+		// 	}
+		// }
+
+// MAPS
+	// Tạo một map với key có kiểu string và value có kiểu int.
+	// dict := make(map[string]int)	
+	// Tạo mới một map với key có kiểu string và value có kiểu string.
+	// dict := map[string]string{"Red": "#da1337", "Orange": "#e95a22"}
+
+	// Anh xa cac khoa toi gia tri
+	// Gia tri zero cua map la nil, nil map khong co key va khong them duoc key
+	// Ham make tra ve map cua kieu da cho, duoc khoi tao va san sang su dung
+		// type Vertex struct {
+		// 	Lat, Long, Test float64  
+		// }
+		
+		// var m map[string]Vertex
+		
+		// func main() {
+		// 	m = make(map[string]Vertex)
+		// 	m["Viet"] = Vertex{
+		// 		2, 9, 1,
+		// 	}
+		// 	fmt.Println(m["Viet"])
+		// }
+
+	// Map literal giong nhu Struct literal, nhung can co chia khoa
+		// type Vertex struct {
+		// 	Lat, Long float64
+		// }
+		
+		// var m = map[string]Vertex{
+		// 	"Bell Labs": Vertex{
+		// 		40.68433, -74.39967,
+		// 	},
+		// 	"Google": Vertex{
+		// 		37.42202, -122.08408,
+		// 	},
+		// }
+		
+		// func main() {
+		// 	fmt.Println(m)
+		// }
+		
+		// Neu top-level type chi la type name, co the bo qua no
+			// var m = map[string]Vertex{
+			// 	"Bell Labs": {40.68433, -74.39967},
+			// 	"Google":    {37.42202, -122.08408},
+			// }
+
+	// Mutating Maps
+		// Them hoac cap nhat element ( m[key] = elem )
+		// Truy xuat element ( elem = m[key] )
+		// Xoa element ( delete(m, key))
+		// Kiem tra xem key co hien dien voi phep gan 2 gia tri ( elem, ok = m[key] )
+			// Neu dung => true, khong => false
+			// Neu key khong co trong map, thi elem se mang gia tri zero
+
+		// func main() {
+		// 	m := make(map[string]int)
+		
+		// 	m["Answer"] = 42
+		// 	fmt.Println("The value:", m["Answer"])
+		
+		// 	m["Answer"] = 48
+		// 	fmt.Println("The value:", m["Answer"])
+		
+		// 	delete(m, "Answer")
+		// 	fmt.Println("The value:", m["Answer"])
+		
+		// 	v, ok := m["Answer"]
+		// 	fmt.Println("The value:", v, "Present?", ok)
+		// }
+
+		// import (
+		// 	"golang.org/x/tour/wc"
+		// 	"strings"
+		// )
+
+		// func WordCount(s string) map[string]int {
+		// 	words := strings.Fields(s)
+		// 	wordCount := make(map[string]int)
+			
+		// 	for _, word := range words {
+		// 		wordCount[word]++
+		// 	}
+
+		// 	return wordCount
+		// }
+
+		// func main() {
+		// 	s := "Hello World. I'm The Viet"
+		// 	wordCounts := WordCount(s)
+			
+		// 	for word, count := range wordCounts {
+		// 		print(word, count)
+		// 	}
+		// 	wc.Test(WordCount)
+		// }
+
+// FUNCTIONS
+	// Ham cung la gia tri va co the truyen di nhu cac gia tri khac
+	// Cac gia tri cua ham co the lam doi so cua ham hoac gia tri tra ve
+		// import (
+		// 	"fmt"
+		// 	"math"
+		// )
+		
+		// func compute(fn func(float64, float64) float64) float64 {
+		// 	return fn(3, 4)
+		// }
+		
+		// func main() {
+		// 	hypot := func(x, y float64) float64 {
+		// 		return math.Sqrt(x*x + y*y)
+		// 	}
+		// 	fmt.Println(hypot(5, 12))
+		
+		// 	fmt.Println(compute(hypot))
+		// 	fmt.Println(compute(math.Pow))
+		// }
+	
+	// Cac ham co the la ham dong. Mot bao dong la mot gia tri ham tham chieu cac bien tu ben ngoai phan than cua no
+	// Ham co the truy cap va gan cho cac bien tham chieu, theo nghia nay, ham duoc rang buoc voi cac bien
+		// func adder() func(int) int {
+		// 	sum := 0
+		// 	return func(x int) int {
+		// 		sum += x
+		// 		return sum
+		// 	}
+		// }
+		
+		// func main() {
+		// 	pos, neg := adder(), adder()
+		// 	for i := 0; i < 10; i++ {
+		// 		fmt.Println(
+		// 			pos(i),
+		// 			neg(-2*i),
+		// 		)
+		// 	}
+		// }
+	
+	// ??? Implement a fibonacci function that returns a function (a closure) that returns successive fibonacci numbers (0, 1, 1, 2, 3, 5, ...).
+		// package main
+
+		// import "fmt"
+		
+		// // fibonacci is a function that returns
+		// // a function that returns an int.
+		// func fibonacci() func() int {
+		// 	a, b := 0, 1
+		// 	return func() int {
+		// 		result := a
+		// 		a, b = b, a+b
+		// 		return result
+		// 	}
+		// }
+		
+		// func main() {
+		// 	f := fibonacci()
+		// 	for i := 0; i < 10; i++ {
+		// 		fmt.Println(f())
+		// 	}
+		// }
+
+// METHODS
+	// Go khong co Classes, tuy nhien, van co the dinh nghia cac methods bang type (type Vertex struct {X, Y float64}) )
+	// Mot method la mot ham co doi so receiver dac biet
+	// Receiver xuat hien trong danh sach doi so rieng giua tu khoa func va ten method
+	// Trong vi du, Abs() method co mot receiver keiu Vertex ten v
+		// import (
+		// 	"fmt"
+		// 	"math"
+		// )
+		
+		// type Vertex struct {
+		// 	X, Y float64
+		// }
+		
+		// func (v Vertex) Abs() float64 {
+		// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+		// }
+		
+		// func main() {
+		// 	v := Vertex{3, 4}
+		// 	fmt.Println(v.Abs())
+		// }
+
+	// Mot method chi la mot ham co doi so la receiver
+	// Vi du, viet lai Abs duoc viet duoi dang mot ham thong thuong va khong co su thay doi ve chuc nang
+		// type Vertex struct {
+		// 	X, Y float64
+		// }
+		
+		// func Abs(v Vertex) float64 {
+		// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+		// }
+		
+		// func main() {
+		// 	v := Vertex{3, 4}
+		// 	fmt.Println(Abs(v))
+		// }
+
+	// Co the khai bao mot method tren cac kieu khong co cau truc
+	// Chi co the khai bao mot method bang mot receiver co kieu duoc xac dinh trong cung goi voi method do
+	// Khong the khai bao mot method bang mot receiver co kieu duoc xac dinh trong mot goi khac ( bao gom ca cac kieu dung san nhu int )		
+		// import (
+		// 	"fmt"
+		// 	"math"
+		// )
+		
+		// type MyFloat float64
+		
+		// func (f MyFloat) Abs() float64 {
+		// 	if f < 0 {
+		// 		return float64(-f)
+		// 	}
+		// 	return float64(f)
+		// }
+		
+		// func main() {
+		// 	f := MyFloat(-math.Sqrt2)
+		// 	fmt.Println(f.Abs())
+		// }
+
+	// POINTERS RECEIVER
+		// Co the khai bao method bang con tro receiver
+		// Kieu receiver co cu phap la *T cho kieu T. Ngoai ra, T khong the la mot con tro giong *int
+		// Vi du, method Scale duoc xac dinh tren Vertex
+			// import (
+			// 	"fmt"
+			// 	"math"
+			// )
+			
+			// type Vertex struct {
+			// 	X, Y float64
+			// }
+			
+			// func (v Vertex) Abs() float64 {
+			// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+			// }
+			
+			// func (v *Vertex) Scale(f float64) {
+			// 	v.X = v.X * f
+			// 	v.Y = v.Y * f
+			// }
+			
+			// func main() {
+			// 	v := Vertex{3, 4}
+			// 	v.Scale(10)
+			// 	fmt.Println(v.Abs())
+			// }
+		// Cac phuong thuc voi con tro receiver co the sua doi gia tri ma receiver tro toi 
+		// Vi cac method thuong can sua doi receiver cua chung nen pointer receiver thuong pho bien hon value receiver
+
+	// POINTERS AND FUNCTION
+		// Trong vi du, method Abs va Scale duoc viet duoi dang ham
+			// func Abs(v Vertex) float64 {
+			// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+			// }
+			
+			// func Scale(v *Vertex, f float64) {
+			// 	v.X = v.X * f
+			// 	v.Y = v.Y * f
+			// }
+		
+	// METHOD AND POINTER INDIRECTION
+		// Cac ham co doi la con tro phai lay mot con tro
+			// var v Vertex
+			// ScaleFunc(v, 5)  // Compile error!
+			// ScaleFunc(&v, 5) // OK
+		// Cac method co pointer receiver se lay mot gia tri hoac mot pointer lam receiver khi chung duoc goi
+			// var v Vertex
+			// v.Scale(5)  // OK
+			// p := &v
+			// p.Scale(10) // OK
+		
+				// type Vertex struct {
+				// 	X, Y float64
+				// }
+				
+				// func (v *Vertex) Scale(f float64) {
+				// 	v.X = v.X * f
+				// 	v.Y = v.Y * f
+				// }
+				
+				// func ScaleFunc(v *Vertex, f float64) {
+				// 	v.X = v.X * f
+				// 	v.Y = v.Y * f
+				// }
+				
+				// func main() {
+				// 	v := Vertex{3, 4}
+				// 	v.Scale(2)
+				// 	ScaleFunc(&v, 10)
+				
+				// 	p := &Vertex{2, 3}
+				// 	p.Scale(3)
+				// 	ScaleFunc(p, 8)
+				
+				// 	fmt.Println(v, p)
+				// }
+		// 	Cac ham lay doi so gia tri phai lay gia tri thuoc kieu cu the do
+			// var v Vertex
+			// fmt.Println(AbsFunc(v))  // OK
+			// fmt.Println(AbsFunc(&v)) // Compile error!
+		// Cac phuong thuc reciver value nhan gia tri lay mot gia tri hoac mot con tro lam receiver khi chung duoc goi
+			// var v Vertex
+			// fmt.Println(v.Abs()) // OK
+			// p := &v
+			// fmt.Println(p.Abs()) // OK
+				// import (
+				// 	"fmt"
+				// 	"math"
+				// )
+				
+				// type Vertex struct {
+				// 	X, Y float64
+				// }
+				
+				// func (v Vertex) Abs() float64 {
+				// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+				// }
+				
+				// func AbsFunc(v Vertex) float64 {
+				// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+				// }
+				
+				// func main() {
+				// 	v := Vertex{3, 4}
+				// 	fmt.Println(v.Abs())
+				// 	fmt.Println(AbsFunc(v))
+				
+				// Khoi tao bien p kieu con tro toi Vertex => Vertex co gia tri X = 4, Y = 3
+				// 	p := &Vertex{4, 3}
+				// 	fmt.Println(p.Abs())
+				// 	fmt.Println(AbsFunc(*p))
+				// }
+
+		// Value receiver: func (e Employee) changeName...)
+		// Pointer receiver: func (e *Employee ) changeAge...)
+		// Co 2 li do de chon pointer receiver so voi value ( Khong duoc ket hop ca 2 ):
+			// De method co the sua doi gia tri ma receiver cua no tro toi
+			// Tranh sao chep gia tri tren moi lenh goi method. Dieu ney co hieu qua neu receiver co cau truc lon
+				// type Vertex struct {
+				// 	X, Y float64
+				// }
+				
+				// func (v *Vertex) Scale(f float64) {
+				// 	v.X = v.X * f
+				// 	v.Y = v.Y * f
+				// }
+				
+				// func (v *Vertex) Abs() float64 {
+				// 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+				// }
+				
+				// func main() {
+				// 	v := &Vertex{3, 4}
+				// 	fmt.Printf("Before scaling: %+v, Abs: %v\n", v, v.Abs())
+				// 	v.Scale(5)
+				// 	fmt.Printf("After scaling: %+v, Abs: %v\n", v, v.Abs())
+				// }
+
+// INTERFACES
+	// La tap hop cac khai bao method
+	// Gia tri cua kieu interface co the chua bat cu gia tri nao thuc hien method do
+	// Khi mot kieu du lieu dinh nghia tat ca phuong thuc trong interface thi no duoc goi la implement interface
+		// type I interface {
+		// 	M()
+		// }
+		
+		// type T struct {
+		// 	S string
+		// }
+		
+		// // This method means type T implements the interface I,
+		// // but we don't need to explicitly declare that it does so.
+		// func (t T) M() {
+		// 	fmt.Println(t.S)
+		// }
+		
+		// func main() {
+		// 	var i I = T{"hello"}
+		// 	i.M()
+		// }
+	
+	// Interface values
+		// cac gia tri interface co the coi lamot bo gia tri va mot kieu cu the (value, type)
+		// Gia tri intrface chua gia tri cua mot kieu co ban cu the
+		// Goi mot method tren mot gia tri interface se thuc thi method co cung ten tren kieu co ban cua no
+			// func (t *T) M() {
+			// 	fmt.Println(t.S)
+			// }
+			
+			// type F float64
+			
+			// func (f F) M() {
+			// 	fmt.Println(f)
+			// }
+			
+			// func main() {
+			// 	var i I
+			
+			// 	i = &T{"Hello"}
+			// 	describe(i)
+			// 	i.M()
+			
+			// 	i = F(math.Pi)
+			// 	describe(i)
+			// 	i.M()
+			// }
+			
+			// func describe(i I) {
+			// 	fmt.Printf("(%v, %T)\n", i, i)
+			// }
+		
+		// Gia tri interface voi gia tri co ban bang nil
+			// Neu gia tri cu the ben trong interface la nil, method se duoc goi voi receiver la nil
+			// Neu gia tri interface chua gia tri cu the la nil thi ban than no khong phai la nil
+				// func (t *T) M() {
+				// 	if t == nil {
+				// 		fmt.Println("<nil>")
+				// 		return
+				// 	}
+				// 	fmt.Println(t.S)
+				// }
+				
+				// func main() {
+				// 	var i I
+				
+				// 	var t *T
+				// 	i = t
+				// 	describe(i)
+				// 	i.M()
+				
+				// 	i = &T{"hello"}
+				// 	describe(i)
+				// 	i.M()
+				// }
+				
+				// func describe(i I) {
+				// 	fmt.Printf("(%v, %T)\n", i, i)
+				// }
+			
+		// Gia tri interface nil
+			// Gia tri interface nil khong giu gia tri cung nhu kieu cu the
+			// Viec goi mot method tren nil interface la mot loi thoi gian chay 
+			// vi khong co kieu nao ben trong interface de chi ra method nao can goi
+				// type I interface {
+				// 	M()
+				// }
+				
+				// func main() {
+				// 	var i I
+				// 	describe(i)
+				// 	i.M()
+				// }
+				
+				// func describe(i I) {
+				// 	fmt.Printf("(%v, %T)\n", i, i)
+				// }
+		
+		// The empty interface
+			// Kieu interface chi dinh cac zero method duoc goi la empty interface (interface{})
+			// Mot empty interface co the chua bat cu gia tri nao (Moi kieu thuc hien it nhat cac rezo method)
+			// Empty interface duoc su dung boi ma xu ly cac gia tri thuoc kieu khong xac dinh
+			// Vi du, fmt.Println nhan bat ky doi so nao thuoc empty interface
+				// func main() {
+				// 	var i interface{}
+				// 	describe(i)
+				
+				// 	i = 42
+				// 	describe(i)
+				
+				// 	i = "hello"
+				// 	describe(i)
+				// }
+				
+				// func describe(i interface{}) {
+				// 	fmt.Printf("(%v, %T)\n", i, i)
+				// }
+	// Type Assertions
+		// Type assertions cung cap quyen truy cap vao gia tri cu the co ban cua interface value (t := i.(T))
+		// Cau lenh tren khang dinh interface value i chua kieu cu the T va gan gia tri co ban T cho bien t
+		// Co the vua dung de dua interface ve kieu du lieu ben duoi no (hoa mot interface khac neu thoa dieu kien)
+		// vua dung de check xem lieu dung la kieu du lieu muon ep ve hay khong
+		// Vi the, no co the tra ve mot cap ket qua theo thu tu: kieu du lieu, gia tri (true/false) the hien ep kieu thanh cong hya that bai
+		// Trong truong hop ban luon dung 2 bien tra ve trong Type assertions thì chuong trinh van thuc thi binh thuong ke ca thanh cong hay khong
+		// Tuy nhien, neu chi dung mot bien se bi panic ngay neu that bai
+			// func main() {
+			// 	var i interface{} = "hello"
+			
+			// 	s := i.(string)
+			// 	fmt.Println(s)
+			
+			// 	s, ok := i.(string)
+			// 	fmt.Println(s, ok)
+			
+			// 	f, ok := i.(float64)
+			// 	fmt.Println(f, ok)
+			
+			// 	f = i.(float64) // panic
+			// 	fmt.Println(f)
+			// }
+	
+	// Type switches
+		// Type switches la mot loai cau truc cho phep mot so xac nhan kieu noi tiep
+		// Type switches giong nhu mot cau lenh chuyen doi thong thuong, 
+		// nhung cac truong hop trong chuyen doi kieu chi dinh kieu (khong phai gia tri) va cac gia tri do so sanh voi
+		// kieu gia tri duoc giu boi value interface da cho
+			// switch v := i.(type) {
+			// case T:
+			// 	// here v has type T
+			// case S:
+			// 	// here v has type S
+			// default:
+			// 	// no match; here v has the same type as i
+			// }
+		// Viec khai bao trong mot kieu chuyen doi co cu phap giong nhu xac nhan mot kieu i.(T), nhung kieu T cu the duoc thay the bang tu khoa type
+		// Cau lenh switch kiem tra xem value interface i co chua gia tri cua kieu T hay S.
+		// Trong moi truong hop T va S, bien v se co kieu T hoac S tuong ung va giu gia tri do i giu
+		// Trong truong hop mac dinh (khong co ket qua khop), bien v co cung kieu interface va gia tri nhu i
+			// func do(i interface{}) {
+			// 	switch v := i.(type) {
+			// 	case int:
+			// 		fmt.Printf("Twice %v is %v\n", v, v*2)
+			// 	case string:
+			// 		fmt.Printf("%q is %v bytes long\n", v, len(v))
+			// 	default:
+			// 		fmt.Printf("I don't know about type %T!\n", v)
+			// 	}
+			// }
+			
+			// func main() {
+			// 	do(21)
+			// 	do("hello")
+			// 	do(true)
+			// }
+
+	// Stringer
+		// Mot trong nhung interface pho bien nhat la Stringer duoc xac dinh boi goi fmt
+			// type Stringer interface {
+			// 	String() string
+			// }
+		// Stringer la mot kieu co the mo ta chinh no nhu mot chuoi
+		// Goi fmt (va nhieu goi khac) tim giao dien nay de in cac gia tri
+			// type Person struct {
+			// 	Name string
+			// 	Age  int
+			// }
+			
+			// func (p Person) String() string {
+			// 	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
+			// }
+			
+			// func main() {
+			// 	a := Person{"Arthur Dent", 42}
+			// 	z := Person{"Zaphod Beeblebrox", 9001}
+			// 	fmt.Println(a, z)
+			// }
+
+		// Ex: Make the IPAddr type implement fmt.Stringer to print the address as a dotted quad. 
+			// For instance, IPAddr{1, 2, 3, 4} should print as "1.2.3.4".
+				// package main
+
+				// import "fmt"
+				
+				// type IPAddr [4]byte
+				
+				// // TODO: Add a "String() string" method to IPAddr.
+				
+				// func (ip IPAddr) String() string {
+				// 	return fmt.Sprintf("%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3])
+				// }
+				
+				// func main() {
+				// 	hosts := map[string]IPAddr{
+				// 		"loopback":  {127, 0, 0, 1},
+				// 		"googleDNS": {8, 8, 8, 8},
+				// 	}
+				// 	for name, ip := range hosts {
+				// 		fmt.Printf("%v: %v\n", name, ip)
+				// 	}
+				// }
+
+	// Errors
+		// The hien trang thai loi voi cac gia tri loi
+		// Kieu error la interface tich hop tuong tu nhu fmt.Stringer
+			// type error interface {
+			// 	Error() string
+			// }
+		// Cac ham thuong tra ve mot gia tri loi va ma goi se xu ly loi bang cach kiem tra xem loi co bang nil khong
+			// i, err := strconv.Atoi("42")
+			// if err != nil {
+			// 	fmt.Printf("couldn't convert number: %v\n", err)
+			// 	return
+			// }
+			// fmt.Println("Converted integer:", i)
+		// Nil error co nghia la thanh cong, neu khac nil error thi bieu thi su that bai
+			// import (
+			// 	"fmt"
+			// 	"time"
+			// )
+			
+			// type MyError struct {
+			// 	When time.Time
+			// 	What string
+			// }
+			
+			// func (e *MyError) Error() string {
+			// 	return fmt.Sprintf("at %v, %s",
+			// 		e.When, e.What)
+			// }
+			
+			// func run() error {
+			// 	return &MyError{
+			// 		time.Now(),
+			// 		"it didn't work",
+			// 	}
+			// }
+			
+			// func main() {
+			// 	if err := run(); err != nil {
+			// 		fmt.Println(err)
+			// 	}
+			// }
+	// Readers
+		// io package chi dinh io.Reader interface, dai dien cho phan doc cuoi cua luong du lieu
+		// Thu vien chuan Gochua nhieu trien khai cua interface, bao gom cac tep, ket noi mang, may nen, mat ma va cac interface khac
+		// io.Reader interface co Read method (func (T) Read(b []byte) (n int, err error))
+		// Read dien du lieu vao byte slice da cho va tra ve so byte duoc dien va mot gia tri loi
+			// No tra ve loi io.EOF khi luong ket thuc
+
+			// import (
+			// 	"fmt"
+			// 	"io"
+			// 	"strings"
+			// )
+			
+			// func main() {
+			// 	r := strings.NewReader("Hello, Reader!")
+			
+			// 	b := make([]byte, 8)
+			// 	for {
+			// 		n, err := r.Read(b)
+			// 		fmt.Printf("n = %v err = %v b = %v\n", n, err, b)
+			// 		fmt.Printf("b[:n] = %q\n", b[:n])
+			// 		if err == io.EOF {
+			// 			break
+			// 		}
+			// 	}
+			// }
+
+		// Ex: A common pattern is an io.Reader that wraps another io.Reader, modifying the stream in some way.
+				// For example, the gzip.NewReader function takes an io.Reader (a stream of compressed data) and returns a *gzip.Reader that also implements io.Reader (a stream of the decompressed data).
+				// Implement a rot13Reader that implements io.Reader and reads from an io.Reader, modifying the stream by applying the rot13 substitution cipher to all alphabetical characters.
+				// The rot13Reader type is provided for you. Make it an io.Reader by implementing its Read method.
+
+					// package main
+
+					// import (
+					// 	"io"
+					// 	"os"
+					// 	"strings"
+					// )
+
+					// type rot13Reader struct {
+					// 	r io.Reader
+					// }
+
+					// func (rr *rot13Reader) Read(p []byte) (n int, err error) {
+					// 	n, err = rr.r.Read(p)
+					// 	for i := range p {
+					// 		if (p[i] >= 'A' && p[i] <= 'Z') || (p[i] >= 'a' && p[i] <= 'z') {
+					// 			if p[i] <= 'Z' {
+					// 				p[i] = 'A' + (p[i] - 'A' + 13)%26
+					// 			} else {
+					// 				p[i] = 'a' + (p[i] -'a' + 13)%26
+					// 			}
+					// 		}
+					// 	}
+					// 	return
+					// }
+
+					// func main() {
+					// 	s := strings.NewReader("Lbh penpxrq gur pbqr!")
+					// 	r := rot13Reader{s}
+					// 	io.Copy(os.Stdout, &r)
+					// }
+
+	// Images
+		// Package Image xac dinh Image interface
+			// package image
+
+			// type Image interface {
+			// 	ColorModel() color.Model
+			// 	Bounds() Rectangle
+			// 	At(x, y int) color.Color
+			// }
+	
+		// Gia tri tra ve Rectangle cua Bounds method thuc su la image.Rectangle vi phan khai bao nam ben trong package image
+		// Cac kieu color.Color and color.Model cung la cac interface, nhung chung ta se bo qua dieu do bang cach su dung cac trien khai
+			// duoc xac dinh truoc color.RGBA va color.RGBAModel. Cac interface nay duoc chi dinh boi image/color package
+			// import (
+			// 	"fmt"
+			// 	"image"
+			// )
+			
+			// func main() {
+			// 	m := image.NewRGBA(image.Rect(0, 0, 100, 100))
+			// 	fmt.Println(m.Bounds())
+			// 	fmt.Println(m.At(0, 0).RGBA())
+			// }
+
+// TYPE PARAMETER
+	// Ham co the viet de hoat dong tren nhieu kieu bang cach su dung cac kieu tham so
+	// Cac kieu tham so cua ham xuat hien giua cac dau ngoac, truoc cac doi so cua ham
+		// func Index[T comparable](s []T, x T) int
+	// Khai bao nay co nghia s la mot slice thuoc bat ky kieu T nao dap ung rang buoc co the so sanh duoc
+	// x cung la mot gia tri cung kieu	
+	// Camparable la mot rang buoc huu ich cho phep su dung cac toan tu == va != tren cac gia tri cua kieu
+	// Vi du, su dun no de so sanh mot gia tri voi tat ca cac phan tu slice cho den khi tim thay ket qua khop
+		// Ham Index nay hoat dong voi moi kieu ho tro so sanh
+			// Index returns the index of x in s, or -1 if not found.
+			// func Index[T comparable](s []T, x T) int {
+			// 	for i, v := range s {
+			// 		// v and x are type T, which has the comparable
+			// 		// constraint, so we can use == here.
+			// 		if v == x {
+			// 			return i
+			// 		}
+			// 	}
+			// 	return -1
+			// }
+
+			// func main() {
+			// 	// Index works on a slice of ints
+			// 	si := []int{10, 20, 15, -10}
+			// 	fmt.Println(Index(si, 15))
+
+			// 	// Index also works on a slice of strings
+			// 	ss := []string{"foo", "bar", "baz"}
+			// 	fmt.Println(Index(ss, "hello"))
+			// }
+
+	
+	// Generic types
+		// Ngoai cac ham generic, Go con ho tro cac kieu generic
+		// Mot kieu co the duoc tham so hoa bang mot kieu tham so, dieu nay se huu ich cho viec trien khai cac cau truc du lieu chung
+		// Vi du, minh hoa cach khai bao bien kieu don gian cho danh sach don chua bat ky kieu gia tri nao
+			// List represents a singly-linked list that holds
+			// values of any type.
+			// type List[T any] struct {
+			// 	next *List[T]
+			// 	val  T
+			// }
+
+// GOROUTINES
+	// Goroutines la mot luong nhe duoc quan ly bang Go runtime
+		// go f(x, y, z)
+	// bat dau chay mot goroutine moi 
+		// f(x, y, z)
+	// Viec danh gia f, x, y, z xay ra trong goroutine hien tai va viec thuc thi f xay ra trong goroutine moi
+	// Goroutine chay trong cung mot khong gian dia chi, do do quyen truy cap vao bo nho dung chung phai duoc dong bo hoa
+		// Goi dong bo hoa cung cap cac ham goc huu ich, mac du khong can nhieu vi co cac ham goc khac
+			// import (
+			// 	"fmt"
+			// 	"time"
+			// )
+			
+			// func say(s string) {
+			// 	for i := 0; i < 5; i++ {
+			// 		time.Sleep(100 * time.Millisecond)
+			// 		fmt.Println(s)
+			// 	}
+			// }
+			
+			// func main() {
+			// 	go say("world")
+			// 	say("hello")
+			// }
+
+	// Channes
+		// La mot duong dan duoc go ma qua do, ban co the gui va nhan cac gia tri voi toan tu channel
+			// ci := make(chan int) // kênh số nguyên không có bộ đệm 
+			// cj := make(chan int, 0) // kênh số nguyên không có bộ đệm 
+			// cs := make(chan *os.File, 100) // kênh số nguyên không có bộ đệm tới Các tập tin
+			
+			// ch <- v    // Send v to channel ch.
+			// v := <-ch  // Receive from ch, and
+			// 		   // assign value to v.
+		// Giong nhu maps va slices, channels phai duoc tao truoc khi su dung
+			// ch := make(chan int)
+		// Theo mac dinh, gui va nhan khoi cho den khi phia ben kia san sang. Dieu nay cho phep goroutinedong bo hoa ma khong can khoa hoac bien dieu kien ro rang
+		// Vi du, tinh tong cac so trong slice, phan phoi cong viec giua 2 goroutine.
+			// Khi ca hai goroutine da hoan thanh viec tinh toan, no se tinh ket qua cuoi cung
+				// func sum(s []int, c chan int) {
+				// 	sum := 0
+				// 	for _, v := range s {
+				// 		sum += v
+				// 	}
+				// 	c <- sum // send sum to c
+				// }
+				
+				// func main() {
+				// 	s := []int{7, 2, 8, -9, 4, 0}
+				
+				// 	c := make(chan int)
+				// 	go sum(s[:len(s)/2], c)
+				// 	go sum(s[len(s)/2:], c)
+				// 	x, y := <-c, <-c // receive from c
+				
+				// 	fmt.Println(x, y, x+y)
+				// }
+	
+	// Buffered Channels
+		// Channels co the duoc buffered. Cung cap do dai bo dem lam doi so thu hai can thuc hien de khoi tao mot kenh duoc luu vao bo dem:
+			// ch := make(chan int, 100)
+		// Chi gui den khoi kenh duoc dem khi day. Nhan khoi khi bo dem trong
+			// func main() {
+			// 	ch := make(chan int, 2)
+			// 	ch <- 1
+			// 	ch <- 2
+			// 	fmt.Println(<-ch)
+			// 	fmt.Println(<-ch)
+			// }
+
+	// Range and Close
+		// Nguoi gui co the dong kenh de cho biet se khong co gia tri nao duoc gui nua
+		// Nguoi nhan co the kiem tra xem kenh da bi dong hay chua bang cach gan tham so thu hai cho bieu thuc nhan:
+			// v, ok := <- ch
+		// neu ok la false neu khong con gia tri nao de nhan va kenh bi dong
+		// Vong lap for i:= range c nhan cac gia tri kenh lien tuc cho den khi no bi dong
+		// Chi nguoi gui moi dong duoc kenh, khong bao gio duoc dong kenh nhan. Gui tren mot kenh dong se gay ra panic
+		// Cac kenh khong giong cac tap tin, ban thuong khong can dong chung
+		// Viec dong chi can thiet khi nguoi nhan phai duoc thong bao rang khong can gia tri nao sap toi nua, 
+			// chang han de ket thuc mot vong lap pham vi
+				// func fibonacci(n int, c chan int) {
+				// 	x, y := 0, 1
+				// 	for i := 0; i < n; i++ {
+				// 		c <- x
+				// 		x, y = y, x+y
+				// 	}
+				// 	close(c)
+				// }
+				
+				// func main() {
+				// 	c := make(chan int, 10)
+				// 	go fibonacci(cap(c), c)
+				// 	for i := range c {
+				// 		fmt.Println(i)
+				// 	}
+				// }
+
+	// Select
+		// Mot cau select cho phep mot goroutine cho tren nhieu hoat dong giao tiep
+		// Mot khoi select chan cho den khi mot trong cac truong hop cua no co the chay, sau do no se thuc thi truong hop do
+		// No chon ngau nhien mot cai neu nhieu cai da san sang
+			// func fibonacci(c, quit chan int) {
+			// 	x, y := 0, 1
+			// 	for {
+			// 		select {
+			// 		case c <- x:
+			// 			x, y = y, x+y
+			// 		case <-quit:
+			// 			fmt.Println("quit")
+			// 			return
+			// 		}
+			// 	}
+			// }
+			
+			// func main() {
+			// 	c := make(chan int)
+			// 	quit := make(chan int)
+			// 	go func() {
+			// 		for i := 0; i < 10; i++ {
+			// 			fmt.Println(<-c)
+			// 		}
+			// 		quit <- 0
+			// 	}()
+			// 	fibonacci(c, quit)
+			// }
+
+	// Default Selection
+		// Truong hop mac dinh cua select se duoc chay neu khong co truong hop khac san sang
+		// Su dung truong hop mac dinh de thu gui hoac nhan ma khong chan
+			// select {
+			// case i := <-c:
+			// 	// use i
+			// default:
+			// 	// receiving from c would block
+			// }
+		
+				// import (
+				// 	"fmt"
+				// 	"time"
+				// )
+				
+				// func main() {
+				// 	tick := time.Tick(100 * time.Millisecond)
+				// 	boom := time.After(500 * time.Millisecond)
+				// 	for {
+				// 		select {
+				// 		case <-tick:
+				// 			fmt.Println("tick.")
+				// 		case <-boom:
+				// 			fmt.Println("BOOM!")
+				// 			return
+				// 		default:
+				// 			fmt.Println("    .")
+				// 			time.Sleep(50 * time.Millisecond)
+				// 		}
+				// 	}
+				// }
+	
+	// sync.Mutex
+		// Duoc goi la loai tru lan nhau va ten thong thuong cho cau truc du lieu cung cap no la Mutex
+		// Thu vien chuan cua G cung cap tinh nang loai tru lan nhau voi sync.Mutex va hai method cua no: Lock, Unlock
+		// Chung ta co the xac dinh mot khoi code se duoc thuc thi bang cach bao quanh no bang lenh goi: Lock and Unlock
+			// nhu duoc hien thi tren Inc method
+		// Chung ta co the su dung gia tri defer de dam bao Mutex se duoc mo khoa nhu trong Value method
+			
+
+// import (
+// 	"fmt"
+// 	"math/cmplx"
+// )
+
+// var (
+// 	ToBe   bool       = false
+// 	MaxInt uint64     = 1<<64 - 1
+// 	z      complex128 = cmplx.Sqrt(-5 + 12i)
+// )
+
+// func main() {
+// 	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+// 	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+// 	fmt.Printf("Type: %T Value: %v\n", z, z)
+// }
+
+
+// type Vertex struct {
+// 	Lat, Long float64
+// }
+
+// var m map[string]Vertex
+
+// func main() {
+// 	m = make(map[string]Vertex)
+// 	m["Viet"] = Vertex{
+// 		2, 9,
+// 	}
+// 	fmt.Println(m["Viet"])
+// }
